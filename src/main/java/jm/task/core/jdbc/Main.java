@@ -3,13 +3,17 @@ package jm.task.core.jdbc;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
-//В методе main класса Main должны происходить следующие операции:
-// Создание таблицы User(ов)
-// Добавление 4 User(ов) в таблицу с данными на свой выбор. После каждого добавления должен быть вывод в консоль (User с именем — name добавлен в базу данных)
-// Получение всех User из базы и вывод в консоль (должен быть переопределен toString в классе User)
-// Очистка таблицы User(ов)
-// Удаление таблицы
+// UserHibernateDaoImpl должен реализовывать интерефейс UserDao
+// В класс Util должна быть добавлена конфигурация для Hibernate (рядом с JDBC), без использования xml.
+// Service на этот раз использует реализацию dao через Hibernate
+// Методы создания и удаления таблицы пользователей в классе UserHibernateDaoImpl должны быть реализованы с помощью SQL.
 public class Main {
+    //-----------------
+    //Если начать запускать методы из test.java.UserServiceTest, то он выдает сообщения, прописаные в Assert.fail("...").
+    //Ругался на отсутствие значения ID по умолчанию
+    //При этом если сперва запустить метод Main (отработает без ошибок), а после начать запускать тесты, то ошибок не будет.
+    //В процессе "танцев с бубном" я добавил анотации в model.User. Я не уверен, действительно ли нужны они там?
+    //-----------------
     public static void main(String[] args) {
         UserService userService = new UserServiceImpl();
         userService.createUsersTable();
