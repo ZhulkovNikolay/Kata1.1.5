@@ -6,7 +6,7 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 // UserHibernateDaoImpl должен реализовывать интерефейс UserDao
 // В класс Util должна быть добавлена конфигурация для Hibernate (рядом с JDBC), без использования xml.
 // Service на этот раз использует реализацию dao через Hibernate
-// Методы создания и удаления таблицы пользователей в классе UserHibernateDaoImpl должны быть реализованы с помощью SQL.
+// Методы создания и удаления таблицы пользователей в классе UserHibernateDaoImpl должны быть реализованы с помощью SQL
 public class Main {
     public static void main(String[] args) {
         UserService userService = new UserServiceImpl();
